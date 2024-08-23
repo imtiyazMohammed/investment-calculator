@@ -1,37 +1,37 @@
 /* Define CSS variables for light and dark modes */
 :root {
-  --background-color: #f8f9fa;
-  --text-color: #000;
-  --input-background-color: #fff;
-  --input-border-color: #ccc;
-  --button-background-color: #007bff;
-  --button-hover-background-color: #0056b3;
-  --remove-button-background-color: #dc3545;
-  --remove-button-hover-background-color: #c82333;
-  --download-button-background-color: #28a745;
-  --download-button-hover-background-color: #218838;
+  --background-color: linear-gradient(135deg, #1f1c2c, #928dab);
+  --text-color: #e0e0e0;
+  --input-background-color: rgba(255, 255, 255, 0.1);
+  --input-border-color: rgba(255, 255, 255, 0.2);
+  --button-background-color: linear-gradient(135deg, #667eea, #764ba2);
+  --button-hover-background-color: linear-gradient(135deg, #5a67d8, #6b46c1);
+  --remove-button-background-color: linear-gradient(135deg, #ff416c, #ff4b2b);
+  --remove-button-hover-background-color: linear-gradient(135deg, #ff3e55, #ff2a1a);
+  --download-button-background-color: linear-gradient(135deg, #56ab2f, #a8e063);
+  --download-button-hover-background-color: linear-gradient(135deg, #4e9a25, #98d954);
 }
 
 body.dark-mode {
-  --background-color: #121212;
-  --text-color: #fff;
-  --input-background-color: #333;
-  --input-border-color: #555;
-  --button-background-color: #1a73e8;
-  --button-hover-background-color: #135ab6;
-  --remove-button-background-color: #e53935;
-  --remove-button-hover-background-color: #ab2f2f;
-  --download-button-background-color: #34a853;
-  --download-button-hover-background-color: #2a8b4e;
+  --background-color: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  --text-color: #e0e0e0;
+  --input-background-color: rgba(255, 255, 255, 0.1);
+  --input-border-color: rgba(255, 255, 255, 0.2);
+  --button-background-color: linear-gradient(135deg, #667eea, #764ba2);
+  --button-hover-background-color: linear-gradient(135deg, #5a67d8, #6b46c1);
+  --remove-button-background-color: linear-gradient(135deg, #ff416c, #ff4b2b);
+  --remove-button-hover-background-color: linear-gradient(135deg, #ff3e55, #ff2a1a);
+  --download-button-background-color: linear-gradient(135deg, #56ab2f, #a8e063);
+  --download-button-hover-background-color: linear-gradient(135deg, #4e9a25, #98d954);
 }
 
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-  background-color: var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
 }
 
@@ -44,11 +44,15 @@ body, html {
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-  background-color: var(--background-color);
+  background: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 h2 {
   margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-group,
@@ -76,6 +80,8 @@ h2 {
   border: 1px solid var(--input-border-color);
   border-radius: 4px;
   box-sizing: border-box;
+  color: var(--text-color);
+  backdrop-filter: blur(5px);
 }
 
 .add-btn-container,
@@ -90,34 +96,34 @@ h2 {
   padding: 10px 15px;
   font-size: 16px;
   color: #fff;
-  background-color: var(--button-background-color);
+  background: var(--button-background-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 .add-btn, .submit-btn {
   padding: 10px 15px;
   font-size: 16px;
   color: #fff;
-  background-color: var(--button-background-color);
+  background: var(--button-background-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 20px;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .add-btn:hover, .remove-btn:hover, .submit-btn:hover {
-  background-color: var(--button-hover-background-color);
+  background: var(--button-hover-background-color);
 }
 
 .remove-btn {
-  background-color: var(--remove-button-background-color);
+  background: var(--remove-button-background-color);
 }
 
 .remove-btn:hover {
-  background-color: var(--remove-button-hover-background-color);
+  background: var(--remove-button-hover-background-color);
 }
 
 .result {
@@ -137,15 +143,15 @@ canvas {
   padding: 10px 20px;
   font-size: 16px;
   color: #fff;
-  background-color: var(--download-button-background-color);
+  background: var(--download-button-background-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .download-btn:hover {
-  background-color: var(--download-button-hover-background-color);
+  background: var(--download-button-hover-background-color);
 }
 
 .toggle-dark-mode-btn {
@@ -189,5 +195,124 @@ canvas {
   .add-btn, .remove-btn, .submit-btn {
       width: 100%;
       text-align: center;
+  }
+}
+
+.toggle-dark-mode-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  outline: none;
+}
+
+.toggle-dark-mode-btn:hover,
+.toggle-dark-mode-btn:focus,
+.toggle-dark-mode-btn:active {
+  border: none;
+  outline: none;
+}
+
+.toggle-dark-mode-btn input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-dark-mode-btn label {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  border: none;  /* Ensure no border on label */
+}
+
+.toggle-dark-mode-btn label:before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s ease;
+  border: none;  /* Ensure no border on the toggle */
+}
+
+.toggle-dark-mode-btn input[type="checkbox"]:checked + label {
+  background-color: #4CAF50;
+}
+
+.toggle-dark-mode-btn input[type="checkbox"]:checked + label:before {
+  transform: translateX(20px);
+}
+
+.toggle-dark-mode-btn span {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+/* Remove all borders and outlines on hover, focus, active states */
+.toggle-dark-mode-btn *,
+.toggle-dark-mode-btn *:hover,
+.toggle-dark-mode-btn *:focus,
+.toggle-dark-mode-btn *:active {
+  border: none;
+  outline: none;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  appearance: none; /* Removes the default arrow for custom styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;  /* Removes the focus outline */
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-group select:hover {
+  border-color: var(--button-hover-background-color); /* Adds border color on hover */
+}
+
+.form-group select:focus {
+  border-color: var(--button-hover-background-color); /* Adds border color on focus */
+  background-color: var(--input-background-color); /* Keeps background consistent */
+}
+
+.form-group select option {
+  background-color: #2c2c2c; /* Dark background for options */
+  color: var(--text-color);  /* Ensures text color matches the theme */
+}
+
+/* Custom arrow for the dropdown */
+.form-group select::after {
+  content: '\25BC'; /* Downward arrow symbol */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-color);
+}
+
+/* Style adjustments for smaller screens */
+@media (max-width: 480px) {
+  .form-group select {
+    width: 100%;
+    font-size: 14px;
   }
 }

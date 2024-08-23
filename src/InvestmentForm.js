@@ -24,7 +24,7 @@ const InvestmentForm = () => {
   const [chartData, setChartData] = useState(null);
   const [barChartData, setBarChartData] = useState(null);
   const [currency, setCurrency] = useState('USD');
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     if (darkMode) {
@@ -251,9 +251,17 @@ const InvestmentForm = () => {
           Download PDF
         </button>
       )}
-      <button className="toggle-dark-mode-btn" onClick={() => setDarkMode(!darkMode)}>
-        Toggle Dark Mode
-      </button>
+      <button className="toggle-dark-mode-btn">
+  <input 
+    type="checkbox" 
+    id="darkModeToggle" 
+    checked={darkMode} 
+    onChange={() => setDarkMode(!darkMode)} 
+  />
+  <label htmlFor="darkModeToggle"></label>
+  <span>{darkMode ? "Dark Mode" : "Light Mode"}</span>
+</button>
+
     </div>
   );
 };
