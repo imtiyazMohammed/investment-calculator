@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/investment-calculator/static/css/main.bb8b65a9.css",
-    "main.js": "/investment-calculator/static/js/main.4cf29912.js",
+    "main.css": "/investment-calculator/static/css/main.56184b32.css",
+    "main.js": "/investment-calculator/static/js/main.0873931c.js",
     "static/js/213.ca18f56c.chunk.js": "/investment-calculator/static/js/213.ca18f56c.chunk.js",
     "static/js/732.c9f0ef51.chunk.js": "/investment-calculator/static/js/732.c9f0ef51.chunk.js",
     "static/js/453.6bce19b9.chunk.js": "/investment-calculator/static/js/453.6bce19b9.chunk.js",
     "index.html": "/investment-calculator/index.html",
-    "main.bb8b65a9.css.map": "/investment-calculator/static/css/main.bb8b65a9.css.map",
-    "main.4cf29912.js.map": "/investment-calculator/static/js/main.4cf29912.js.map",
+    "main.56184b32.css.map": "/investment-calculator/static/css/main.56184b32.css.map",
+    "main.0873931c.js.map": "/investment-calculator/static/js/main.0873931c.js.map",
     "213.ca18f56c.chunk.js.map": "/investment-calculator/static/js/213.ca18f56c.chunk.js.map",
     "732.c9f0ef51.chunk.js.map": "/investment-calculator/static/js/732.c9f0ef51.chunk.js.map",
     "453.6bce19b9.chunk.js.map": "/investment-calculator/static/js/453.6bce19b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb8b65a9.css",
-    "static/js/main.4cf29912.js"
+    "static/css/main.56184b32.css",
+    "static/js/main.0873931c.js"
   ]
 }
