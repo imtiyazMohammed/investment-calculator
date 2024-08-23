@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Pie, Bar } from 'react-chartjs-2';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -23,6 +23,16 @@ const InvestmentForm = () => {
   const [projectedReturns, setProjectedReturns] = useState(null);
   const [chartData, setChartData] = useState(null);
   const [barChartData, setBarChartData] = useState(null);
+  const [currency, setCurrency] = useState('USD');
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
 
   const handleInputChange = (index, event) => {
     const values = [...investments];
@@ -55,20 +65,25 @@ const InvestmentForm = () => {
     investments.forEach((investment, index) => {
       const investmentReturns = [];
       let amountInvested = (totalAmount * investment.percentage) / 100;
+      let cumulativeReturn = 0;
       for (let year = 1; year <= timePeriod; year++) {
-        const investmentReturn = amountInvested * Math.pow(1 + investment.returns / 100, 1);
+        const investmentReturn = amountInvested * Math.pow(1 + investment.returns / 100, year);
         investmentReturns.push(investmentReturn);
+        cumulativeReturn += investmentReturn;
         amountInvested += (amountInvested * annualIncrease) / 100;
-        totalProjectedReturns += investmentReturn;
       }
-      returnsData.push(investmentReturns[investmentReturns.length - 1]);
+      returnsData.push(cumulativeReturn);
       labels.push(investment.name);
       barChartDatasets.push({
         label: investment.name,
         data: investmentReturns,
         backgroundColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.6)`,
       });
+      totalProjectedReturns += cumulativeReturn; // Update total projected returns here
     });
+
+    console.log("Total Projected Returns:", totalProjectedReturns); // Debugging log
+    console.log("Returns Data:", returnsData); // Debugging log
 
     setProjectedReturns(totalProjectedReturns);
     setChartData({
@@ -123,8 +138,21 @@ const InvestmentForm = () => {
     });
   };
 
+  const currencySymbol = (currency) => {
+    switch (currency) {
+      case 'USD':
+        return '$';
+      case 'EUR':
+        return '€';
+      case 'INR':
+        return '₹';
+      default:
+        return '$';
+    }
+  };
+
   return (
-    <div className="investment-form">
+    <div className={`investment-form ${darkMode ? 'dark-mode' : ''}`}>
       <form id="investment-form" onSubmit={calculateReturns}>
         <h2>Investment Calculator</h2>
         <div className="form-group">
@@ -144,6 +172,14 @@ const InvestmentForm = () => {
             onChange={(e) => setAnnualIncrease(e.target.value)}
             required
           />
+        </div>
+        <div className="form-group">
+          <label>Select Currency:</label>
+          <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="INR">INR</option>
+          </select>
         </div>
         {investments.map((investment, index) => (
           <div className="investment-row" key={index}>
@@ -194,11 +230,13 @@ const InvestmentForm = () => {
             required
           />
         </div>
+        <div className="add-btn-container">
         <button type="submit" className="submit-btn">Calculate Returns</button>
+        </div>
       </form>
       {projectedReturns !== null && (
         <div className="result" id="chart-canvas">
-          <h3>Projected Returns: ${projectedReturns.toFixed(2)}</h3>
+          <h3>Projected Returns: {currencySymbol(currency)}{projectedReturns.toFixed(2)}</h3>
           {chartData && <Pie data={chartData} />}
           {barChartData && (
             <>
@@ -213,6 +251,9 @@ const InvestmentForm = () => {
           Download PDF
         </button>
       )}
+      <button className="toggle-dark-mode-btn" onClick={() => setDarkMode(!darkMode)}>
+        Toggle Dark Mode
+      </button>
     </div>
   );
 };

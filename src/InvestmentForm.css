@@ -1,114 +1,193 @@
-/* InvestmentForm.css */
+/* Define CSS variables for light and dark modes */
+:root {
+  --background-color: #f8f9fa;
+  --text-color: #000;
+  --input-background-color: #fff;
+  --input-border-color: #ccc;
+  --button-background-color: #007bff;
+  --button-hover-background-color: #0056b3;
+  --remove-button-background-color: #dc3545;
+  --remove-button-hover-background-color: #c82333;
+  --download-button-background-color: #28a745;
+  --download-button-hover-background-color: #218838;
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #fff;
+  --input-background-color: #333;
+  --input-border-color: #555;
+  --button-background-color: #1a73e8;
+  --button-hover-background-color: #135ab6;
+  --remove-button-background-color: #e53935;
+  --remove-button-hover-background-color: #ab2f2f;
+  --download-button-background-color: #34a853;
+  --download-button-hover-background-color: #2a8b4e;
+}
 
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-  }
-  
-  .investment-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-    min-height: 100vh;
-    box-sizing: border-box;
-    background-color: #f8f9fa;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-  }
-  
-  .form-group,
-  .investment-row {
-    display: flex;
-    flex-direction: column;
-    width: 90%; /* Make the form take more horizontal space */
-    max-width: 800px; /* Increase max width */
-    margin-bottom: 15px;
-  }
-  
-  .investment-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .investment-row input,
-  .form-group input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .add-btn-container,
-  .submit-btn {
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
-  }
-  
-  .add-btn, .remove-btn, .submit-btn {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-btn:hover, .remove-btn:hover, .submit-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .remove-btn {
-    background-color: #dc3545;
-  }
-  
-  .remove-btn:hover {
-    background-color: #c82333;
-  }
-  
-  .result {
-    margin-top: 20px;
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
-  }
-  
-  canvas {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Add this to your InvestmentForm.css */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.investment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-group,
+.investment-row {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 15px;
+}
+
+.investment-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.investment-row input,
+.form-group input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-btn-container,
+.submit-btn-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.remove-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--button-background-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.add-btn, .submit-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--button-background-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover, .remove-btn:hover, .submit-btn:hover {
+  background-color: var(--button-hover-background-color);
+}
+
+.remove-btn {
+  background-color: var(--remove-button-background-color);
+}
+
+.remove-btn:hover {
+  background-color: var(--remove-button-hover-background-color);
+}
+
+.result {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
 
 .download-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--download-button-background-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: var(--download-button-hover-background-color);
+}
+
+.toggle-dark-mode-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-dark-mode-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .investment-row {
+      flex-direction: column;
   }
-  
-  .download-btn:hover {
-    background-color: #218838;
+
+  .add-btn-container,
+  .submit-btn {
+      justify-content: center;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .investment-form {
+      padding: 10px;
+  }
+
+  .form-group,
+  .investment-row {
+      width: 100%;
+  }
+
+  .add-btn, .remove-btn, .submit-btn {
+      width: 100%;
+      text-align: center;
+  }
+}
