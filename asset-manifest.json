@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/your-repo-name/static/css/main.34a01e2f.css",
+    "main.js": "/your-repo-name/static/js/main.bed1170a.js",
+    "static/js/213.ca18f56c.chunk.js": "/your-repo-name/static/js/213.ca18f56c.chunk.js",
+    "static/js/732.c9f0ef51.chunk.js": "/your-repo-name/static/js/732.c9f0ef51.chunk.js",
+    "static/js/453.6bce19b9.chunk.js": "/your-repo-name/static/js/453.6bce19b9.chunk.js",
+    "index.html": "/your-repo-name/index.html",
+    "main.34a01e2f.css.map": "/your-repo-name/static/css/main.34a01e2f.css.map",
+    "main.bed1170a.js.map": "/your-repo-name/static/js/main.bed1170a.js.map",
+    "213.ca18f56c.chunk.js.map": "/your-repo-name/static/js/213.ca18f56c.chunk.js.map",
+    "732.c9f0ef51.chunk.js.map": "/your-repo-name/static/js/732.c9f0ef51.chunk.js.map",
+    "453.6bce19b9.chunk.js.map": "/your-repo-name/static/js/453.6bce19b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34a01e2f.css",
+    "static/js/main.bed1170a.js"
+  ]
+}
